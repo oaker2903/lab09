@@ -5,35 +5,30 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.JFrame;
 import java.awt.event.ActionEvent;
-
-
-
 /**
  * A very simple program using a graphical interface.
  * 
  */
-public final class SimpleGUI {
-    
-    private static final int PROPORTION = 4;
 
+public final class SimpleGUI {
+
+    private static final int PROPORTION = 4;
     private static final String TITLE = "A very simple GUI application";
     private final JFrame frame = new JFrame(TITLE);
 
-
-    public SimpleGUI() {    
+    /**
+     * A very simple program using a graphical interface with file chooser.
+     * 
+     */
+    public SimpleGUI() {
         final JPanel canvas = new JPanel();
         canvas.setLayout(new BorderLayout());
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //faccio jpanel
-        //faccio JTetArea e lo ficco in panel
-        //facio bottone, e lo ficcoin text JTetArea
         final JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
 
@@ -43,7 +38,6 @@ public final class SimpleGUI {
 
         canvas.add(textArea, 0);
         canvas.add(button, BorderLayout.SOUTH);
-      
         button.addActionListener(
             new ActionListener() {
                 @Override 
@@ -53,9 +47,6 @@ public final class SimpleGUI {
             }
         );
     }
-
-
-
 
     private void display() {
         final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
