@@ -34,7 +34,7 @@ public class BadIOGUI {
     private static final String PATH = System.getProperty("user.home")
         + File.separator
         + BadIOGUI.class.getSimpleName() + ".txt";
-    private static final int PROPORTION = 5;
+    private static final int PROPORTION = 2;
     private final Random randomGenerator = new Random();
     private final JFrame frame = new JFrame(TITLE);
 
@@ -78,14 +78,13 @@ public class BadIOGUI {
                 }
             }
         );
-        final Path filePath = Paths.get(PATH);
         read.addActionListener(
             new ActionListener() {
                 @Override
                 public void actionPerformed(final ActionEvent e) {
                     IO.println("string on terminal, the path is: " + PATH);
                     try {
-                        final List<String> lines = Files.readAllLines(filePath, StandardCharsets.UTF_8);
+                        final List<String> lines = Files.readAllLines(Paths.get(PATH), StandardCharsets.UTF_8);
                         IO.println(lines);
                     } catch (final IOException t) {
                         JOptionPane.showMessageDialog(frame, t, "Error", JOptionPane.ERROR_MESSAGE);
@@ -118,9 +117,9 @@ public class BadIOGUI {
         /*
          * OK, ready to push the frame onscreen
          */
-
-        frame.setVisible(true);
         frame.pack();
+        frame.setVisible(true);
+        
     }
 
     /**
