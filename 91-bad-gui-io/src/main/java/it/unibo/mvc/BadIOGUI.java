@@ -3,11 +3,8 @@ package it.unibo.mvc;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -20,7 +17,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -54,15 +50,11 @@ public class BadIOGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         final JPanel panel = new JPanel();
-        
         panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
-        
         canvas.add(panel, BorderLayout.CENTER);
         panel.add(write);
-        
         final JButton read = new JButton("read");
         panel.add(read);
-
         /*
          * Handlers
          */
@@ -86,19 +78,18 @@ public class BadIOGUI {
                 }
             }
         );
-        Path filePath = Paths.get(PATH);
+        final Path filePath = Paths.get(PATH);
         read.addActionListener(
             new ActionListener() {
                 @Override
                 public void actionPerformed(final ActionEvent e) {
                     IO.println("string on terminal, the path is: " + PATH);
                     try {
-                        List<String> lines = Files.readAllLines(filePath, StandardCharsets.UTF_8);
-            
+                        final List<String> lines = Files.readAllLines(filePath, StandardCharsets.UTF_8);
                         IO.println(lines);
-
-                    } catch (final IOException er) {
-                        er.printStackTrace();
+                    } catch (final IOException t) {
+                        JOptionPane.showMessageDialog(frame, t, "Error", JOptionPane.ERROR_MESSAGE);
+                        t.printStackTrace(); // NOPMD: allowed as this is just an exercise
                     }
                 }
             }
@@ -124,7 +115,6 @@ public class BadIOGUI {
          * on screen. Results may vary, but it is generally the best choice.
          */
         frame.setLocationByPlatform(true);
-        
         /*
          * OK, ready to push the frame onscreen
          */
