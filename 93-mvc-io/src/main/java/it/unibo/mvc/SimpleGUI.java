@@ -1,6 +1,5 @@
 package it.unibo.mvc;
 
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -40,7 +39,7 @@ public final class SimpleGUI {
         textArea.setEditable(false);
         final JPanel buttonPanel = new JPanel();
         /*modified instead of usign BorderLayout I prefer GridLayout so the buttons have the same width */
-        buttonPanel.setLayout(new GridLayout(1,2));
+        buttonPanel.setLayout(new GridLayout(1, 2));
 
         final JButton print = new JButton("print string");
         final JButton showHistory = new JButton("show history");
@@ -79,16 +78,22 @@ public final class SimpleGUI {
             }
         );
     }
+    /**
+     * simple display.
+     */
 
     public void display() {
         final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-        final int sh = (int) screen.getHeight();    
+        final int sh = (int) screen.getHeight();
         final int sw = (int) screen.getWidth();
         frame.setSize(sw / PROPORTION, sh / PROPORTION);
         frame.setLocationByPlatform(true);
         // frame.pack();
         frame.setVisible(true);
     }
+    /**
+     * main to start display.
+     */
 
     public void main() {
         new SimpleGUI().display();

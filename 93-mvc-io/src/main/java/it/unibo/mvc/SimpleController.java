@@ -12,7 +12,7 @@ public final class SimpleController implements Controller {
     private final List<String> history = new ArrayList<>();
 
     @Override
-    public void setNextString(String next) {
+    public void setNextString(final String next) {
         if (next == null) {
             throw new IllegalArgumentException("next string cannot be null");
         } else {
@@ -22,7 +22,7 @@ public final class SimpleController implements Controller {
 
     @Override
     public String getNextString() {
-        return this.nextString;        
+        return this.nextString;
     }
 
     @Override
@@ -32,7 +32,7 @@ public final class SimpleController implements Controller {
 
     @Override
     public void printCurrentString() {
-        if(this.nextString == null) {
+        if (this.nextString == null) {
             throw new IllegalStateException("currest string is unset");
         } else {
             /*at this point it prints on ST and save it in the history */
