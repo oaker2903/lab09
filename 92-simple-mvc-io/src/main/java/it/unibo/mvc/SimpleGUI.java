@@ -29,6 +29,8 @@ public final class SimpleGUI {
         canvas.setLayout(new BorderLayout());
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
         final JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
 
@@ -38,6 +40,8 @@ public final class SimpleGUI {
 
         canvas.add(textArea, 0);
         canvas.add(button, BorderLayout.SOUTH);
+
+        
         button.addActionListener(
             new ActionListener() {
                 @Override 
@@ -53,7 +57,6 @@ public final class SimpleGUI {
         final int sw = (int) screen.getWidth();
         final int sh = (int) screen.getHeight();
         frame.setSize(sw / PROPORTION, sh / PROPORTION);
-
         frame.setLocationByPlatform(true);
         // frame.pack();
         frame.setVisible(true);
