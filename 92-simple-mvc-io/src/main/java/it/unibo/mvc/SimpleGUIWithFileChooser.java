@@ -41,21 +41,15 @@ public final class SimpleGUIWithFileChooser {
         canvas.setLayout(new BorderLayout());
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         final JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
-
         final JButton button = new JButton("SAVE");
-
         final JTextArea textArea = new JTextArea();
-
         final JPanel browsePanel = new JPanel();
         browsePanel.setLayout(new BorderLayout());
-
         final JTextField browseTextField = new JTextField("file selected"); 
         browseTextField.setEditable(false);
         final JButton browseButton = new JButton("SELECT FILE");
-
         browsePanel.add(browseTextField, BorderLayout.LINE_START);
         browsePanel.add(browseButton, BorderLayout.LINE_END);
         canvas.add(textArea, 0);
